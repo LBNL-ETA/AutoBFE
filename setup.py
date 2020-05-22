@@ -2,7 +2,7 @@
 AutoBFE
 """
 
-from setuptools
+import setuptools
 from os import path
 
 root = path.dirname(__file__)
