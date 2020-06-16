@@ -11,7 +11,7 @@ with open(path.join(here, "README.md"), encoding="utf-8") as f:
     long_description = f.read()
 
 with open(path.join(here, "requirements_AutoBFE.txt")) as f:
-    install_requires = f.read().splitlines()s
+    install_requires = f.read().splitlines()
 
 setup(
     name="AutoBFE",
