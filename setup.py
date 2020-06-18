@@ -7,13 +7,13 @@ from os import path
 
 root = path.dirname(__file__)
 
-with open(path.join(here, "README.md"), encoding="utf-8") as f:
+with open(path.join(root, "README.md"), encoding="utf-8") as f:
     long_description = f.read()
 
-with open(path.join(here, "requirements_AutoBFE.txt")) as f:
-    install_requires = f.read().splitlines()s
+with open(path.join(root, "requirements_Auto_BFE.txt")) as f:
+    install_requires = f.read().splitlines()
 
-setup(
+setuptools.setup(
     name="AutoBFE",
     version="0.1",
     url="https://github.com/LBNL-ETA/AutoBFE",
