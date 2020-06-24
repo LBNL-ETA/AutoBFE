@@ -298,10 +298,25 @@ class UndirectedGraph:
 
 
 
-def project(shape, source, target):
-    """Projects a geometry from one coordinate system into another.
-    From: https://github.com/mapbox/robosat
+# def project(shape, source, target):
+#     """Projects a geometry from one coordinate system into another.
+#     From: https://github.com/mapbox/robosat
 
+#     Args:
+#       shape: the geometry to project.
+#       source: the source EPSG spatial reference system identifier.
+#       target: the target EPSG spatial reference system identifier.
+
+#     Returns:
+#       The projected geometry in the target coordinate system.
+#     """
+
+#     transformer = pyproj.Transformer.from_crs(source, target)
+#     return shapely.ops.transform(transformer.transform, shape)
+
+def project_0(shape, source, target):
+    """Projects a geometry from one coordinate system into another.
+    This function is an adaptation to bypass a bug in pyproj package
     Args:
       shape: the geometry to project.
       source: the source EPSG spatial reference system identifier.
@@ -310,9 +325,31 @@ def project(shape, source, target):
     Returns:
       The projected geometry in the target coordinate system.
     """
+    with warnings.catch_warnings(): # To exclude the warnings of Proj deprecation
+        warnings.simplefilter("ignore")
+        proj_in = pyproj.Proj(init=source)
+        proj_out = pyproj.Proj(init=target)
+    project_fun = pyproj.Transformer.from_proj(proj_in, proj_out).transform
 
-    transformer = pyproj.Transformer.from_crs(source, target)
-    return shapely.ops.transform(transformer.transform, shape)
+    return shapely.ops.transform(project_fun, shape)
+
+def project(shape, source, target):
+    """Projects a geometry from one coordinate system into another.
+    Args:
+      shape: the geometry to project.
+      source: the source EPSG spatial reference system identifier.
+      target: the target EPSG spatial reference system identifier.
+
+    Returns:
+      The projected geometry in the target coordinate system.
+    """
+    with warnings.catch_warnings(): # To exclude the warnings of Proj deprecation
+        warnings.simplefilter("ignore")
+        proj_in = CRS(source)
+        proj_out = CRS(target)
+    project_fun = pyproj.Transformer.from_crs(proj_in, proj_out).transform
+
+    return shapely.ops.transform(project_fun, shape)
 
 
 def union(shapes):

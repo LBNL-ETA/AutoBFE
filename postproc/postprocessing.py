@@ -111,15 +111,15 @@ def merge_polygons(polygons_path, new_polygons_path, distance_threshold):
     graph = UndirectedGraph()
     idx = make_index(shapes)
     def buffered(shape):
-        projected = project(shape, "epsg:4326", "epsg:3395")
+        projected = project_0(shape, "epsg:4326", "epsg:3395")
         buffered = projected.buffer(distance_threshold)
-        unprojected = project(buffered, "epsg:3395", "epsg:4326")
+        unprojected = project_0(buffered, "epsg:3395", "epsg:4326")
         return unprojected
 
     def unbuffered(shape):
-        projected = project(shape, "epsg:4326", "epsg:3395")
+        projected = project_0(shape, "epsg:4326", "epsg:3395")
         unbuffered = projected.buffer(-1 * distance_threshold)
-        unprojected = project(unbuffered, "epsg:3395", "epsg:4326")
+        unprojected = project_0(unbuffered, "epsg:3395", "epsg:4326")
         return unprojected
 
     for i, shape in enumerate(tqdm(shapes, desc="Building graph", unit="shapes", ascii=True)):
@@ -165,7 +165,6 @@ def merge_polygons(polygons_path, new_polygons_path, distance_threshold):
 
     with open(new_polygons_path, "w") as fp:
         geojson.dump(collection, fp)
-
 
 def postproc_evaluation(pred_masks_path, masks_path, nclass):
     # Define Evaluator
