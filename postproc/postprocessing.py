@@ -180,13 +180,13 @@ def postproc_evaluation(pred_masks_path, masks_path, nclass):
         mask = Image.open(mask_path)#.convert('L')
         # convert RGB into B & W
         thresh = 100
-        fn = lambda x : 255 if x > thresh else 0
+        fn = lambda x : 255 if x < thresh else 0
         mask = mask.convert('L').point(fn, mode='1')
         mask = np.array(mask)
 
         pred_mask = Image.open(pred_mask_path)#.convert('L')
         # convert RGB into B & W
-        fn = lambda x : 255 if x > thresh else 0
+        fn = lambda x : 255 if x < thresh else 0
         pred_mask = pred_mask.convert('L').point(fn, mode='1')
         pred_mask = np.array(pred_mask)
 
