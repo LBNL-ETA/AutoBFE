@@ -93,7 +93,7 @@ PySocks==1.6.8
 python-dateutil==2.7.5
 pytz==2018.7
 PyWavelets==1.0.3
-PyYAML==5.1.2
+PyYAML==5.4
 pyzmq==17.1.2
 rasterio==1.0.18
 rasterstats==0.13.1
