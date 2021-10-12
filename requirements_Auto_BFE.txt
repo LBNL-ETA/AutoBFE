@@ -67,7 +67,7 @@ nbformat==5.0.4
 networkx==2.2
 numpy
 olefile==0.46
-opencv-python==4.1.2.30
+opencv-python==4.2.0.32
 osmnx==0.8.2
 pandas==0.23.4
 pandocfilters==1.4.2
