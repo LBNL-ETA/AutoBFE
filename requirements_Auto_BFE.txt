@@ -18,7 +18,7 @@ cloudpickle==1.2.1
 cryptography==3.3.2
 cycler==0.10.0
 cytoolz==0.10.0
-dask==2.2.0
+dask==2021.10.0
 decorator==4.3.0
 defusedxml==0.6.0
 descartes==1.1.0
