@@ -97,7 +97,7 @@ PyYAML==5.4
 pyzmq==17.1.2
 rasterio==1.0.18
 rasterstats==0.13.1
-requests==2.31.0
+requests==2.32.0
 Rtree==0.8.3
 scikit-image==0.15.0
 scikit-learn==1.4.2
