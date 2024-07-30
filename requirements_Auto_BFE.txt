@@ -114,7 +114,7 @@ supermercado==0.0.5
 tensorboard
 tensorboardX==1.8
 tensorflow-estimator
-tensorflow-gpu==2.12.0
+tensorflow-gpu==2.12.1
 termcolor==1.1.0
 terminado
 testpath==0.4.2
