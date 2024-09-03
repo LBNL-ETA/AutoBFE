@@ -45,7 +45,7 @@ Jinja2==3.1.4
 jsonschema==3.0.0a3
 jupyter-client
 jupyter-core
-jupyterlab==3.6.7
+jupyterlab==3.6.8
 jupyterlab-server==0.2.0
 Keras==2.13.1
 Keras-Applications==1.0.8
