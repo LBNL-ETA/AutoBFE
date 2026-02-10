@@ -62,7 +62,7 @@ mkl-fft==1.0.6
 mkl-random==1.0.1
 #mkl-service==2.1.0
 munch==2.3.2
-nbconvert==6.5.1
+nbconvert==7.17.0
 nbformat==5.0.4
 networkx==2.2
 numpy
